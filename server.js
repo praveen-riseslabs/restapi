@@ -9,10 +9,14 @@ import loginRouter from "./routes/login.router.js";
 import forgotRouter from "./routes/forgot.router.js";
 import resetRouter from "./routes/reset.router.js";
 import employeeRouter from "./routes/employee.route.js";
+
+
 //const mongoose = require("mongoose");
 
 //const bodyParser = require("body-parser");
 // create express app
+
+
 const app = express(); 
 // Setup server port
 
@@ -50,6 +54,19 @@ mongoose.connect(DB.url, {
 //   res.json({ message: "Hello World" });
 // });
 // listen for requests
+const options = {
+  definition: {
+    openapi: '3.0.0',
+    info: {
+      title: 'Your API Name',
+      version: '1.0.0',
+      description: 'A short description of your API',
+    },
+  },
+  apis: ['./routes/user.routes.js'], // Path to the API docs
+};
+
 app.listen(port, () => {
   console.log(`Node server is listening on port ${port}`);
 });
+
