@@ -59,7 +59,7 @@ mongoose.Promise = global.Promise;
 // listen for requests
 
 const start = async () => {
-  mongoose.set("bufferCommands", false);
+  mongoose.set("bufferCommands", true);
   if (!DB.url) {
       throw new Error('auth DB_URI must be defined');
   }
@@ -70,15 +70,16 @@ const start = async () => {
           //useCreateIndex: true,
           useUnifiedTopology: true,
       });
-      console.log('Server connected to MongoDb!');
+      const connection = mongoose.connection;
+      connection.once("open", () => {
+      console.log("MongoDB database connection established successfully");
+    });
   } catch (err) {
       //throw new DbConnectionError();
       console.error(err);
   }
-const connection = mongoose.connection;
-connection.once("open", () => {
-  console.log("MongoDB database connection established successfully");
-});
+
+
   app.listen(port, () => {
     console.log(`Node server is listening on port ${port}`);
   });
