@@ -13,7 +13,7 @@ export const findAll = (req, res) => {
     });
 };
 // Create and Save a new User
-export const create = (req, res) => {
+export const create = async (req, res) => {
   // Validate request
   if (!req.body) {
     return res.status(400).send({
@@ -29,7 +29,7 @@ export const create = (req, res) => {
     password: req.body.password
   });
   // Save user in the database
-  user
+ await user
     .save()
     .then(data => {
       res.send(data);
@@ -41,8 +41,8 @@ export const create = (req, res) => {
     });
 };
 // Find a single User with a id
-export const findOne = (req, res) => {
-  User.findById(req.params.id)
+export const findOne =async (req, res) => {
+  await User.findById(req.params.id)
     .then(user => {
       if (!user) {
         return res.status(404).send({
