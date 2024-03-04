@@ -46,11 +46,7 @@ mongoose.Promise = global.Promise;
 //const userRoutes = require("./routes/user.routes");
 //const loginRoutes = require("./routes/login.routes");
 // using as middleware
- app.use("/api/v1", userRoutes);
- app.use("/api/v1/user", loginRouter);
- app.use("/api/v1/forgot", forgotRouter);
- app.use("/api/v1/reset", resetRouter);
- app.use("/api/v1/emp", employeeRouter);
+
 
 // define a root/default route
 // app.get("/", (req, res) => {
@@ -88,3 +84,9 @@ const start = async () => {
 
 
 start();
+
+app.use("/api/v1", userRoutes);
+app.use("/api/v1/user", loginRouter);
+app.use("/api/v1/forgot", forgotRouter);
+app.use("/api/v1/reset", resetRouter);
+app.use("/api/v1/emp", employeeRouter);
