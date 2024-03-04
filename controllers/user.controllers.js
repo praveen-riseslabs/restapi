@@ -26,7 +26,7 @@ export const create = async (req, res) => {
       });
     }
     // Create a new User
-    const user = await new User({
+    const user =  new User({
       firstname: req.body.firstname,
       lastname: req.body.lastname,
       email: req.body.email,
@@ -34,8 +34,7 @@ export const create = async (req, res) => {
       password: req.body.password
     });
     // Save user in the database
-   await user
-      .save()
+      const saved = await user.save()
       .then(data => {
         res.send(data);
       })
