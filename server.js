@@ -26,19 +26,22 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
 // Configuring the database
-
 mongoose.Promise = global.Promise;
 // Connecting to the database
-mongoose.connect(DB.url, {
-    useNewUrlParser: true
-  })
-  .then(() => {
-    console.log("Successfully connected to the database");
-  })
-  .catch(err => {
-    console.log("Could not connect to the database.", err);
-    process.exit();
-  });
+// mongoose.connect(DB.url, {
+//     useNewUrlParser: true
+//   })
+//   .then(() => {
+//     console.log("Successfully connected to the database");
+//   })
+//   .catch(err => {
+//     console.log("Could not connect to the database.", err);
+//     process.exit();
+//   });
+
+  
+
+
 // Require Users routes
 //const userRoutes = require("./routes/user.routes");
 //const loginRoutes = require("./routes/login.routes");
@@ -54,19 +57,27 @@ mongoose.connect(DB.url, {
 //   res.json({ message: "Hello World" });
 // });
 // listen for requests
-const options = {
-  definition: {
-    openapi: '3.0.0',
-    info: {
-      title: 'Your API Name',
-      version: '1.0.0',
-      description: 'A short description of your API',
-    },
-  },
-  apis: ['./routes/user.routes.js'], // Path to the API docs
+
+const start = async () => {
+    
+  if (!DB.url) {
+      throw new Error('auth DB_URI must be defined');
+  }
+  try {
+      await mongoose.connect(DB.url, {
+          useNewUrlParser: true
+      });
+      console.log('Server connected to MongoDb!');
+  } catch (err) {
+      //throw new DbConnectionError();
+      console.error(err);
+  }
+
+  const PORT = process.env.PORT;
+  app.listen(port, () => {
+    console.log(`Node server is listening on port ${port}`);
+  });
 };
 
-app.listen(port, () => {
-  console.log(`Node server is listening on port ${port}`);
-});
 
+start();
