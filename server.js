@@ -73,7 +73,6 @@ const start = async () => {
       console.error(err);
   }
 
-  const PORT = process.env.PORT;
   app.listen(port, () => {
     console.log(`Node server is listening on port ${port}`);
   });

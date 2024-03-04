@@ -14,35 +14,41 @@ export const findAll = (req, res) => {
 };
 // Create and Save a new User
 export const create = async (req, res) => {
-  // Validate request
-  if (!req.body) {
-    return res.status(400).send({
-      message: "Please fill all required field"
-    });
-  }
-  // Create a new User
-  const user = new User({
-    firstname: req.body.firstname,
-    lastname: req.body.lastname,
-    email: req.body.email,
-    phone: req.body.phone,
-    password: req.body.password
-  });
-  // Save user in the database
- await user
-    .save()
-    .then(data => {
-      res.send(data);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message: err.message || "Something went wrong while creating new user."
+  try{
+    if (!req.body) {
+      return res.status(400).send({
+        message: "Please fill all required field"
       });
+    }
+    // Create a new User
+    const user = new User({
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
+      email: req.body.email,
+      phone: req.body.phone,
+      password: req.body.password
     });
+    // Save user in the database
+   await user
+      .save()
+      .then(data => {
+        res.send(data);
+      })
+      .catch(err => {
+        res.status(500).send({
+          message: err.message || "Something went wrong while creating new user."
+        });
+      });
+  } catch(e) {
+    console.log("error", e);
+  }
+  // Validate request
+  
 };
 // Find a single User with a id
 export const findOne =async (req, res) => {
-  await User.findById(req.params.id)
+  try{
+    await User.findById(req.params.id)
     .then(user => {
       if (!user) {
         return res.status(404).send({
@@ -61,6 +67,10 @@ export const findOne =async (req, res) => {
         message: "Error getting user with id " + req.params.id
       });
     });
+  } catch(e){
+     console.log("error", e);
+  }
+ 
 };
 // Update a User identified by the id in the request
 export const update = (req, res) => {
