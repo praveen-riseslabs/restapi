@@ -26,7 +26,7 @@ export const create = async (req, res) => {
       });
     }
     // Create a new User
-    const user =  new User({
+    const user =  await new User({
       firstname: req.body.firstname,
       lastname: req.body.lastname,
       email: req.body.email,
@@ -34,7 +34,7 @@ export const create = async (req, res) => {
       password: req.body.password
     });
     // Save user in the database
-      const saved = await user.save()
+      const saved =  user.save()
       .then(data => {
         res.send(data);
       })
@@ -43,6 +43,7 @@ export const create = async (req, res) => {
           message: err.message || "Something went wrong while creating new user."
         });
       });
+      await saved;
   } catch(e) {
     console.log("error", e);
   }

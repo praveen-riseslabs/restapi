@@ -59,7 +59,7 @@ mongoose.Promise = global.Promise;
 // listen for requests
 
 const start = async () => {
-//  mongoose.set("bufferCommands", false);
+  mongoose.set("bufferCommands", false);
   if (!DB.url) {
       throw new Error('auth DB_URI must be defined');
   }
