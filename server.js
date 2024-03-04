@@ -55,7 +55,7 @@ mongoose.Promise = global.Promise;
 // listen for requests
 
 const start = async () => {
-  mongoose.set("bufferCommands", false);
+ // mongoose.set("bufferCommands", false);
   if (!DB.url) {
       throw new Error('auth DB_URI must be defined');
   }
@@ -80,13 +80,14 @@ const start = async () => {
   app.listen(port, () => {
     console.log(`Node server is listening on port ${port}`);
   });
+  app.use("/api/v1", userRoutes);
+  app.use("/api/v1/user", loginRouter);
+  app.use("/api/v1/forgot", forgotRouter);
+  app.use("/api/v1/reset", resetRouter);
+  app.use("/api/v1/emp", employeeRouter);
 };
 
 
 start();
 
-app.use("/api/v1", userRoutes);
-app.use("/api/v1/user", loginRouter);
-app.use("/api/v1/forgot", forgotRouter);
-app.use("/api/v1/reset", resetRouter);
-app.use("/api/v1/emp", employeeRouter);
+
