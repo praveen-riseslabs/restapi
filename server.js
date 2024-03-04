@@ -71,10 +71,10 @@ const start = async () => {
           
           useUnifiedTopology: true,
       });
-      const connection = mongoose.connection;
-      connection.once("open", () => {
-      console.log("MongoDB database connection established successfully");
-    });
+      // const connection =  mongoose.connection;
+      // connection.once("open", () => {
+      // console.log("MongoDB database connection established successfully");
+    // });
   } catch (err) {
       //throw new DbConnectionError();
       console.error(err);
