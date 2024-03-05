@@ -39,6 +39,8 @@ mongoose.Promise = global.Promise;
 // listen for requests
 
 //mongoose.set("bufferCommands", false);
+mongoose.set('strictQuery', true);
+
 var options = {
                useUnifiedTopology: true,
   //              useCreateIndex: true,
