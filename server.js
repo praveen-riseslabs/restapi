@@ -64,6 +64,7 @@ const start = async () => {
       await mongoose.connect(DB.url, {
           useNewUrlParser: true,
           socketTimeoutMS: 0,
+          connectTimeoutMS: 2000,
           //useCreateIndex: true,
           
           useUnifiedTopology: true,
