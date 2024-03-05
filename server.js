@@ -46,7 +46,7 @@ const options = {
   socketTimeoutMS: 45000, // Close sockets after 45 seconds of inactivity
   family: 4 // Use IPv4, skip trying IPv6
 };
-const connect = mongoose
+const connect = await mongoose
   .connect(DB.url,options)
   .then(() => {
     console.log("Successfully connected to the database");
