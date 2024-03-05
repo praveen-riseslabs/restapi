@@ -56,7 +56,7 @@ app.use("/api/v1/user", loginRouter);
 app.use("/api/v1/forgot", forgotRouter);
 app.use("/api/v1/reset", resetRouter);
 app.use("/api/v1/emp", employeeRouter);
-app.listen(process.env.PORT || port, process.env.IP || '0.0.0.0' , async () => {
+app.listen(port, () => {
  // await connect;
   console.log(`Node server is listening on port ${port}`);
 });
