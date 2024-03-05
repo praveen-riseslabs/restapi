@@ -23,7 +23,7 @@ export const create = async (req, res) => {
     if (!req.body) {
       return res.status(400).send({
         message: "Please fill all required field"
-      });
+      }); 
     }
     // Create a new User
     const user =  await new User({
