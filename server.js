@@ -43,8 +43,7 @@ const options = {
   useNewUrlParser: true,
   useUnifiedTopology: true
 };
-const connect = await mongoose
-  .connect(DB.url,options)
+ mongoose.connect(DB.url,options)
   .then(() => {
     console.log("Successfully connected to the database");
   })
@@ -58,6 +57,6 @@ app.use("/api/v1/forgot", forgotRouter);
 app.use("/api/v1/reset", resetRouter);
 app.use("/api/v1/emp", employeeRouter);
 app.listen(process.env.PORT || port, process.env.IP || '0.0.0.0' , async () => {
-  await connect;
+ // await connect;
   console.log(`Node server is listening on port ${port}`);
 });
