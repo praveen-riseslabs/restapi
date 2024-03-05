@@ -38,12 +38,17 @@ mongoose.Promise = global.Promise;
 // });
 // listen for requests
 
-mongoose.set("bufferCommands", false);
-const options = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
+//mongoose.set("bufferCommands", false);
+var options = {
+               useUnifiedTopology: true,
+  //              useCreateIndex: true,
+                useNewUrlParser: true,
+                bufferCommands: false,
+                //bufferMaxEntries: 0,
+                //useFindAndModify: false,
+              //  poolSize: 1,
 };
- mongoose.connect(DB.url,options)
+ mongoose.connect(DB.url, options)
   .then(() => {
     console.log("Successfully connected to the database");
   })
