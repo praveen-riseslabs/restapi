@@ -42,7 +42,12 @@ mongoose.set("bufferCommands", false);
 
 const connect = mongoose
   .connect(DB.url, {
-    useNewUrlParser: true
+    // useNewUrlParser: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    ssl: true,
+    // tlsCAFile: mongoCertPath, ----> you should remove this line
+    socketTimeoutMS:43200000,
   })
   .then(() => {
     console.log("Successfully connected to the database");
