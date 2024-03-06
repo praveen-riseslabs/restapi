@@ -3,7 +3,7 @@ import express from "express";
 import bodyParser from "body-parser";
 //const dbConfig = require("./config/db.config.js");
 import DB from "./config/db.config.js";
-import mongoose from "mongoose";
+import mongoose from "mongoose";  
 import userRoutes from "./routes/user.routes.js";
 import loginRouter from "./routes/login.router.js";
 import forgotRouter from "./routes/forgot.router.js";
@@ -46,6 +46,8 @@ var options = {
   //              useCreateIndex: true,
                 useNewUrlParser: true,
                 bufferCommands: false,
+                maxPoolSize: 10 
+                
                 //bufferMaxEntries: 0,
                 //useFindAndModify: false,
               //  poolSize: 1,
