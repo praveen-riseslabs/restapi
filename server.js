@@ -42,7 +42,6 @@ mongoose.Promise = global.Promise;
 mongoose.set('strictQuery', true);
 
 var options = {
-               useUnifiedTopology: false,
   //              useCreateIndex: true,
                 useNewUrlParser: true,
                 bufferCommands: false,
