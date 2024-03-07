@@ -44,7 +44,7 @@ mongoose.set('strictQuery', true);
 var options = {
   //              useCreateIndex: true,
                 useNewUrlParser: true,
-                bufferCommands: false,
+                // bufferCommands: false,
                 maxPoolSize: 10 
                 
                 //bufferMaxEntries: 0,
