@@ -46,7 +46,8 @@ var options = {
   //              useCreateIndex: true,
                 useNewUrlParser: true,
                 bufferCommands: true,
-                maxPoolSize: 10 
+                maxPoolSize: 10 ,
+                family: 4,
                 
                 //bufferMaxEntries: 0,
                 //useFindAndModify: false,
