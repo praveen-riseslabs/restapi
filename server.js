@@ -42,9 +42,10 @@ mongoose.Promise = global.Promise;
 mongoose.set('strictQuery', true);
 
 var options = {
+               useUnifiedTopology: true,
   //              useCreateIndex: true,
                 useNewUrlParser: true,
-                // bufferCommands: false,
+                bufferCommands: true,
                 maxPoolSize: 10 
                 
                 //bufferMaxEntries: 0,
