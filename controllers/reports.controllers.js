@@ -1,7 +1,7 @@
-import Document from "./../models/document.model.js";
+import Document from "../models/document.model.js";
 import {authenticateToken} from "./token.controller.js"
 // Retrieve and return all Employees from the database.
-export const getAllDocuments = (req, res) => {
+export const getAllRecords = (req, res) => {
   authenticateToken(req, res);
   Document.find()
     .then(document => {
@@ -15,7 +15,7 @@ export const getAllDocuments = (req, res) => {
     });
 };
 // Create and Save a new Employee
-export const addNewDocuments = (req, res) => {
+export const addNewRecords = (req, res) => {
   // Validate request
   authenticateToken(req, res);
   if (!req.body) {
@@ -38,7 +38,7 @@ export const addNewDocuments = (req, res) => {
       });
     });
 };
-export const editDocument = (req, res) => {
+export const editRecords = (req, res) => {
   // Validate request
   authenticateToken(req, res);
   let docId = req.params.id;
@@ -66,7 +66,7 @@ export const editDocument = (req, res) => {
   //     });
   //   });
 };
-export const deleteDocument = (req, res) => {
+export const deleteRecords = (req, res) => {
   // Validate request
   authenticateToken(req, res);
   if (!req.body) {

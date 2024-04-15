@@ -1,9 +1,9 @@
 import express from 'express';
-import {getalldocuments, addnewDocuments,editnewDocuments, deletenewDocuments} from '../controllers/documement.controllers.js'
-const employeeRouter = express.Router()
-employeeRouter.get('/getdocumets', getalldocuments);
-employeeRouter.post('/addnewdocuments', addnewDocuments);
-employeeRouter.update('/editdocuments', editnewDocuments);
-employeeRouter.delete('/deletedocuments', deletenewDocuments);
+import {getAllDocuments, addNewDocuments, editDocument, deleteDocument} from '../controllers/document.controllers.js'
+const documentsRouter = express.Router()
+documentsRouter.get('/getalldocumets', getAllDocuments);
+documentsRouter.post('/addnewdocument', addNewDocuments);
+documentsRouter.put('/editdocument/:id', editDocument);
+documentsRouter.delete('/deletedocument', deleteDocument);
 
-export default employeeRouter;
+export default documentsRouter;

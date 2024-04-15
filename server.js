@@ -9,6 +9,8 @@ import loginRouter from "./routes/login.router.js";
 import forgotRouter from "./routes/forgot.router.js";
 import resetRouter from "./routes/reset.router.js";
 import employeeRouter from "./routes/employee.route.js";
+import documementRouter from "./routes/document.route.js";
+import reportRouter from "./routes/reports.route.js";
 
 //const mongoose = require("mongoose");
 
@@ -66,6 +68,8 @@ app.use("/api/v1/user", loginRouter);
 app.use("/api/v1/forgot", forgotRouter);
 app.use("/api/v1/reset", resetRouter);
 app.use("/api/v1/emp", employeeRouter);
+app.use("/api/v1/document", documementRouter);
+app.use("/api/v1/reports", reportRouter);
 app.listen(port, () => {
  // await connect;
   console.log(`Node server is listening on port ${port}`);
