@@ -1,4 +1,4 @@
-import Document from "../models/document.model.js";
+import Document from "../models/reports.model.js";
 import {authenticateToken} from "./token.controller.js"
 // Retrieve and return all Employees from the database.
 export const getAllRecords = (req, res) => {
