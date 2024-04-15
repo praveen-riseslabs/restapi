@@ -1,9 +1,9 @@
 import express from 'express';
 import {getAllRecords, addNewRecords,editRecords, deleteRecords} from '../controllers/reports.controllers.js'
 const reportsRouter = express.Router()
-reportsRouter.get('/getalldocumets', getAllRecords);
-reportsRouter.post('/addnewdocument', addNewRecords);
-reportsRouter.put('/editdocument/:id', editRecords);
-reportsRouter.delete('/deletedocument', deleteRecords);
+reportsRouter.get('/getallrecords', getAllRecords);
+reportsRouter.post('/addnewrecord', addNewRecords);
+reportsRouter.put('/editrecord/:id', editRecords);
+reportsRouter.delete('/deleterecord/:id', deleteRecords);
 
 export default reportsRouter;

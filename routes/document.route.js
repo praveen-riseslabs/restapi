@@ -4,6 +4,6 @@ const documentsRouter = express.Router()
 documentsRouter.get('/getalldocumets', getAllDocuments);
 documentsRouter.post('/addnewdocument', addNewDocuments);
 documentsRouter.put('/editdocument/:id', editDocument);
-documentsRouter.delete('/deletedocument', deleteDocument);
+documentsRouter.delete('/deletedocument/:id', deleteDocument);
 
 export default documentsRouter;
