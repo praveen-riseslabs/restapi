@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const DocumentsSchema = mongoose.Schema({
+const ReportsSchema = mongoose.Schema({
     name: String,
     description: String,
     label: String,
@@ -10,5 +10,5 @@ const DocumentsSchema = mongoose.Schema({
     timestamps: true
 });
 
-export default mongoose.model('documents', DocumentsSchema);
+export default mongoose.model('reports', ReportsSchema);
 //export default DB;
